@@ -3,6 +3,8 @@ var commentArea='<div id="commentArea" >'+'<p><textarea id="commentContent" ></t
 $("body").append(commentArea);
 $('#commentArea').css('visibility', 'hidden');
 
+var myid = chrome.i18n.getMessage("@@extension_id");
+
 var lastTimeStamp=(new Date).getTime();
 var element = '*';
 var disable='a,button,input,img'
@@ -48,7 +50,7 @@ function getAndSend(){
 			var content = $("#commentContent").val();
 			var comment = {url:location.href,content:content,point:point,selector:selector};
 			//投稿されたコメントを即時にページに追加
-			$("body").append('<div style="position:absolute;left:'+left+'px; top:'+top+'px; " class="tip" id="id'+id+'"><img src="chrome-extension://nomghafacdgpmibcahgoaghlgliiihai/horn.png"></div>');
+			$("body").append('<div style="position:absolute;left:'+left+'px; top:'+top+'px; " class="tip" id="id'+id+'"><img src="chrome-extension://'+myid+'/horn.png"></div>');
 			$("#id"+id).balloon({contents:content,position:"right"});
 			id++;
 			

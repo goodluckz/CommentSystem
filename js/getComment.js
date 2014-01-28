@@ -1,5 +1,9 @@
 // var host = "172.20.6.36:3000";
 var host = "192.168.11.16:3000";
+
+var myid = chrome.i18n.getMessage("@@extension_id");
+
+
 $.get('http://'+host+'/getComment',{url:location.href}).done(function(data) {
   for (var i=0, size=data.length; i<size; ++i) {
 	var offset = $(data[i].selector).offset();
@@ -12,7 +16,7 @@ $.get('http://'+host+'/getComment',{url:location.href}).done(function(data) {
 	}
 	var id = data[i]._id;
 	var content = data[i].content;
-	$("body").append('<div style="position:absolute;left:'+left+'px; top:'+top+'px; " class="tip" id="id'+id+'"><img src="chrome-extension://nomghafacdgpmibcahgoaghlgliiihai/horn.png"></div>');
+	$("body").append('<div style="position:absolute;left:'+left+'px; top:'+top+'px; " class="tip" id="id'+id+'"><img src="chrome-extension://'+myid+'/horn.png"></div>');
 	$("#id"+id).balloon({contents:content,position:"right"});  
   }
 });

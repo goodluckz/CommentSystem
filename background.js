@@ -1,5 +1,4 @@
- var host = "192.168.11.16:3000";
-
+var host = "192.168.11.16:3000";
 
  function getClickHandler() {
  	return function(info, tab) {
