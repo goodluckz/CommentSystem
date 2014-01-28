@@ -1,3 +1,4 @@
+//web要素のユニークセレクタを返す
 (function($) {
   $.fn.getPath = function () {
     if (this.length != 1) throw 'Requires one element.';
