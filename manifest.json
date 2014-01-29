@@ -1,33 +1,44 @@
 {
-  "name" : "Massage Passing test",
-  "version" : "1.0.0",
+  "name": "Comment System",
+  "version": "1.0.0",
   "background": {
-    "scripts": ["/js/jquery-1.7.2.min.js",
-    "background.js"]
+    "scripts": [
+      "/js/jquery-1.7.2.min.js",
+      "background.js"
+    ]
   },
   "content_scripts": [
-  {
-    "matches": ["http://*/*"],
-    
-    "js": ["/js/jquery-1.7.2.min.js",
-    "/js/jquery.balloon.min.js",
-    "/js/jquery.uniqueSelector.js",
-    "/js/sendComment.js",
-    "/js/getComment.js",
-    "/js/jquery-ui.js"
-    ]
-  }
+    {
+      "matches": [
+        "http://*/*"
+      ],
+      "js": [
+        "/js/jquery-1.7.2.min.js",
+        "/js/jquery.balloon.min.js",
+        "/js/jquery.uniqueSelector.js",
+        "/js/sendComment.js",
+        "/js/getComment.js",
+        "/js/stringUtility.js",
+        "/js/jqueryui/ui.core.js",
+        "/js/jqueryui/ui.draggable.js"
+      ]
+    }
   ],
-    "permissions": [
-      "contextMenus",
+  "permissions": [
+    "contextMenus",
     "http://*/*",
     "https://*/*"
-      ],
-    "browser_action": {
-      "default_icon": "icon.png",
-      "default_title":"contextMenu",
-      "default_popup": "popup.html"
-    },
-    "web_accessible_resources":["horn.png"],
-    "manifest_version": 2
+  ],
+  "icons":{
+    "16": "icon.png"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "contextMenu",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    "horn.png"
+  ],
+  "manifest_version": 2
 }
