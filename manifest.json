@@ -21,6 +21,9 @@
         "/js/stringUtility.js",
         "/js/jqueryui/ui.core.js",
         "/js/jqueryui/ui.draggable.js"
+      ],
+      "css": [
+        "/css/comment.css"
       ]
     }
   ],
@@ -29,7 +32,7 @@
     "http://*/*",
     "https://*/*"
   ],
-  "icons":{
+  "icons": {
     "16": "icon.png"
   },
   "browser_action": {

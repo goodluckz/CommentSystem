@@ -2,12 +2,12 @@
 var host = "192.168.11.16:3000";
 var myid = chrome.i18n.getMessage("@@extension_id");
 var allComments;
-
-$.get('http://'+host+'/getComment',{url:location.href}).done(function(data) {
-	allComments=data;
-	replaceComments(data);
-});
-
+setTimeout(function() {
+	$.get('http://'+host+'/getComment',{url:location.href}).done(function(data) {
+		allComments=data;
+		replaceComments(data);
+	});
+}, 100000);
 function replaceComments(data){
   for (var i=0, size=data.length; i<size; ++i) {
 	var offset = $(data[i].selector).offset();

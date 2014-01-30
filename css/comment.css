@@ -1,0 +1,19 @@
+#commentArea{
+	visibility:visible,
+	font-size: 12px,
+	text-align: center
+}
+#commentArea>p{
+	margin: 0,
+	padding:0
+}
+#commentArea textarea {
+	resize:both,
+	width:140px
+}
+
+#commentArea button {
+	border:1px solid #999,
+	padding:1px 6px,
+	margin: 0px 5px
+}
