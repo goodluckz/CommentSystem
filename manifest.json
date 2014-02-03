@@ -21,10 +21,8 @@
         "/js/stringUtility.js",
         "/js/jqueryui/ui.core.js",
         "/js/jqueryui/ui.draggable.js"
-      ],
-      "css": [
-        "/css/comment.css"
       ]
+      
     }
   ],
   "permissions": [

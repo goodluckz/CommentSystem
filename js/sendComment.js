@@ -62,7 +62,7 @@ function getAndSend(){
 		$('#commentArea>p').css({'margin': 0,'padding':0});
 		$('#commentArea textarea').css({'resize':'both','width':'140px'});
 		$('#commentArea button').css({'border':'1px solid #999','padding':'1px 6px','margin': '0px 5px'});
-		$(selector).showBalloon({contents:text,position:'top left',offsetX:point[0]+170,offsetY:-point[1]-70,tipSize: 0}).draggable();
+		$(selector).showBalloon({contents:text,position:'top left',offsetX:point[0]+170,offsetY:-point[1]-70,tipSize: 0});
 
 		
 		$("#sendComment").click(function() {
