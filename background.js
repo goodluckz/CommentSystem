@@ -1,5 +1,6 @@
 // var host = "192.168.11.16:3000";
-var host = "172.20.6.31:3000";
+// var host = "172.20.6.31:3000";
+var host = "172.20.6.27:3000";
  function getClickHandler() {
  	return function(info, tab) {
  		//現在のタブにメッセージを送る

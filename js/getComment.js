@@ -1,6 +1,7 @@
 // var host = "172.20.6.36:3000";
 // var host = "192.168.11.16:3000";
-var host = "172.20.6.31:3000";
+// var host = "172.20.6.31:3000";
+var host = "172.20.6.27:3000";
 var myid = chrome.i18n.getMessage("@@extension_id");
 var allComments;
 
