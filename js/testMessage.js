@@ -1,38 +1,48 @@
 chrome.extension.onRequest.addListener(
-  function(request, sender, sendResponse) {
-	console.log(sender.tab ?
-				"from a content script:" + sender.tab.url :
-				"from the extension");
-	sendResponse({}); // snub them.
-	//コメントのメッセージを受けた
-	getComment();
+	function(request, sender, sendResponse) {
+		console.log(sender.tab ?
+			"from a content script:" + sender.tab.url :
+			"from the extension");
+		sendResponse({}); // snub them.
+		//コメントのメッセージを受けた
+		getComment();
 
-  }
+	}
 );
 
-function getComment(){
-	var commentArea='<div id="commentArea" >'+'<textarea id="commentContent" ></textarea>'+'<button id="sendComment">click</button>'+'</div>';
+function getComment() {
+	var commentArea = '<div id="commentArea" >' + '<textarea id="commentContent" ></textarea>' + '<button id="sendComment">click</button>' + '</div>';
 	$("body").append(commentArea);
 	$('#commentArea').css('visibility', 'hidden');
 
 	$('img,h1,h2').click(function(e) {
-		var selector=$(this).getPath();
-		var offset=$(selector).offset();
+		var selector = $(this).getPath();
+		var offset = $(selector).offset();
 		// alert(e.pageX-offset.left);
-		var point=[e.pageX-offset.left,e.pageY-offset.top];
+		var point = [e.pageX - offset.left, e.pageY - offset.top];
 		// alert(point[0]+' , '+point[1]);
 		//showWindow
 		var text = $('#commentArea').css('visibility', 'visible');
-		$(this).showBalloon({contents:text,position:'top left',offsetX:point[0]+100,offsetY:-point[1]});
-		
+		$(this).showBalloon({
+			contents: text,
+			position: 'top left',
+			offsetX: point[0] + 100,
+			offsetY: -point[1]
+		});
+
 		$("#sendComment").click(function() {
 			var content = $("#commentContent").val();
-			var comment = {url:location.href,content:content,point:point,selector:selector};
+			var comment = {
+				url: location.href,
+				content: content,
+				point: point,
+				selector: selector
+			};
 			chrome.extension.sendRequest(comment, function(response) {
-				if(response.message == "success"){
+				if (response.message == "success") {
 					console.log("response accepted");
 					location.reload();
-				}else{
+				} else {
 					console.log("failed");
 					location.reload();
 				}
